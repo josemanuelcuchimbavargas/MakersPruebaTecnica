@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-faded">    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <a class="navbar-brand" href="#">        
+        <img src="https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png" width="30" height="30" alt="">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['home']">Inicio</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['editorial']">Editorial</a>
+        </li>   
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['libro']">Libro</a>
+        </li>         
+        <li class="nav-item">
+          <a class="nav-link" (click)="cerrarSesion()">Cerrar Sesión</a>
+      </li>         
+      </ul>    
+    </div>
+  </nav>

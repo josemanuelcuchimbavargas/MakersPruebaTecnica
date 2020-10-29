@@ -1,0 +1,68 @@
+<h1>Crud Libro</h1> 
+<hr>
+<form [formGroup]="EditorialForm" (ngSubmit)="guardar()">                 
+        <div class="form-group">
+            <label for="Titulo">Titulo</label>
+            <input type="text" class="form-control" formControlName="Titulo" id="Titulo">
+        </div>        
+        <div class="form-group">
+            <label for="idEditoria">Editorial</label>
+            <select class="form-control" formControlName="idEditoria" id="idEditoria">
+                <option *ngFor="let editoria of editorial" value="{{editoria.idEditoria}}">{{editoria.nombre}}</option>
+            </select>            
+        </div>           
+        <div class="form-group">
+            <label for="Fecha">Fecha</label>
+            <input type="date" class="form-control" formControlName="Fecha" id="Fecha">
+        </div> 
+        <div class="form-group">
+            <label for="Costo">Costo</label>
+            <input type="number" class="form-control" formControlName="Costo" id="Costo">
+        </div> 
+        <div class="form-group">
+            <label for="PrecioSugerido">PrecioSugerido</label>
+            <input type="number" class="form-control" formControlName="PrecioSugerido" id="PrecioSugerido">
+        </div>  
+        <div class="form-group">
+            <label for="Autor">Autor</label>
+            <input type="text" class="form-control" formControlName="Autor" id="Autor">
+        </div>                          
+    <button type="submit" class="btn btn-primary">Guardar</button>            
+    <button type="button" class="btn btn-warning " (click)="limpiar()">Limpiar</button>
+</form>    
+
+<div class="table-responsive" style="padding-top: 10px;">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">IdEditoria</th>       
+            <th scope="col">Fecha</th>      
+            <th scope="col">Costo</th>      
+            <th scope="col">PrecioSugerido</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Acciones</th>       
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataLibro; let i = index;">
+            <td>{{i+1}}</td>
+            <td>{{item.titulo}}</td>            
+            <td>{{item.editorial}}</td>
+            <td>{{item.fecha}}</td>
+            <td>{{item.costo}}</td>
+            <td>{{item.precioSugerido}}</td>
+            <td>{{item.autor}}</td>
+            <td style="text-align: end;">
+                <button class="btn btn-success" style="margin-right: 1%;"  (click)="editar(item)">
+                    Editar
+                 </button>
+                 <button class="btn btn-danger" (click)="eliminar(item.id)">
+                    Eliminar
+                </button>
+            </td>      
+          </tr>
+        </tbody>
+      </table>
+</div> 
